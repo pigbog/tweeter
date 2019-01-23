@@ -18,8 +18,97 @@ body {
   margin: 0;
   color: #244751;
   background-color: #eee;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ main {
+ 	
+ 	width: 450px;
+ 	margin: auto;
+ 	background: white;
+ 	height:100%;
+
+ 	padding-top:140px;
+ }
+
+.red{
+ 	color: red;
+ }
+
+
+ 
+.tweets:hover a{
+	visibility: visible;
+	color:#00a087;
+}
+
+.tweets a{
+	color: white;
+	visibility: hidden;
+}
+
+.tweets {
+	padding:0;
+	background-color: white;
+	margin: auto;
+	margin:2em;
+	border-radius:.5em;
+	border-color: lightgray;
+	border-style: solid;
+	border-width: 1px
+}
+.tweets header{
+	vertical-align: middle;
+	padding:0;
+	background-color: #eee;
+	padding: .4rem;
+	font-size:1.5rem;
+	font-weight:900;
+	border-top-right-radius: .25em;
+	border-top-left-radius: .25em;
+	line-height: 3;
+
+}
+
+.tweets header .userID{
+	float: right;
+	font-size:1rem;
+	padding: .4rem;
+	font-weight:300;
+}
+
+.tweets .avatars{
+	width:60px;
+	margin-right:1rem;
+	border-radius:.5em;
+	float: left;
+	opacity:.6;	
+}
+
+.tweets:hover .avatars{
+	opacity:1;
+}
+.tweets .tweet-innards{
+	margin:0.5rem;
+}
+.tweets footer{
+	border-top-style: solid;
+	border-width: 1px;
+	border-color: lightgray;
+	padding:.5em;
+	font-weight:300;
+	font-size:.8rem;
+}
+
+
+.tweets .buttons{
+	float:right;
+}
+
+.tweets:hover{
+	border-color:#000000;
+}
