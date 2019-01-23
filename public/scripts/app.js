@@ -83,7 +83,7 @@ function createTweetElement(tweets){
 }
 
 function renderTweets (tweetdata){
-	for (indTweets in tweetdata){
+	for (let indTweets in tweetdata){
 		$('.tweet-container').append(createTweetElement(tweetdata[indTweets]))
 	}
 }

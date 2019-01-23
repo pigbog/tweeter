@@ -23,6 +23,26 @@
     <!-- FontAwesome icon pack" -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
+    <script>
+      $(function() {
+        var $button = $('#compose');
+        $button.on('submit', function () {
+        event.preventDefault();
+        let submission = $("#compose textarea").val();
+        $button.serialize()
+
+        console.log('Submitted: ', submission);
+        $.ajax({
+            type: "POST",
+            url: "/tweets",
+            data: $('#compose').serialize(),
+            success: function(data){
+              alert(submission);
+            },
+          });
+        });
+      });
+    </script>
 
 
   </head>
@@ -39,9 +59,9 @@
     <main class="container">
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
-        <form>
-          <textarea name="text" placeholder="What are you humming about?"></textarea>
-          <input type="submit" value="Tweet">
+        <form id="compose">
+          <textarea name="text" placeholder="What are you humming about?"></textarea id="tweet-body">
+          <input type="submit" value="Tweet" id="Submit-Tweets">
           <span class="counter">140</span>
         </form>
       </section>
@@ -58,7 +78,7 @@
 
 <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js">  
-    </script>
+    </script> 
 
   </body>
 </html>
