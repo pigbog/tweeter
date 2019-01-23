@@ -49,6 +49,7 @@ body {
 .tweets a{
 	color: white;
 	visibility: hidden;
+	text-decoration: none;	
 }
 
 .tweets {
