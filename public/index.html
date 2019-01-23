@@ -30,15 +30,15 @@
         event.preventDefault();
         let submission = $("#compose textarea").val();
         $button.serialize()
-
+        console.log("serialized form= ", $("#compose").serialize() )
         console.log('Submitted: ', submission);
         $.ajax({
             type: "POST",
             url: "/tweets",
             data: $('#compose').serialize(),
-            success: function(data){
-              alert(submission);
-            },
+            // success: function(data){
+            //   alert(submission);
+            // },
           });
         });
       });
