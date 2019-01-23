@@ -7,7 +7,6 @@
 
 
 function createTweetElement(tweets){
-	console.log(tweets)
 	const $tweet =
 	`
 	<article class="tweets">
@@ -37,14 +36,19 @@ function createTweetElement(tweets){
 
 function renderTweets (tweetdata){
 	for (let indTweets in tweetdata){
-		$('.tweet-container').append(createTweetElement(tweetdata[indTweets]))
+		$('.tweet-container').prepend(createTweetElement(tweetdata[indTweets]))
 	}
 }
 
 
-$(document).ready(
-	function loadTweets(){
+function loadTweets(){
 		$.get("/tweets", function(response){ 
-			renderTweets(response);
-	})
-})
+			renderTweets(response);}
+		)}
+
+$(document).ready( loadTweets() )
+
+
+
+$("#compose").on("submit", function (){
+	$('.tweet-containter').replaceWith( loadTweets() )})

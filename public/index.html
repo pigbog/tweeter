@@ -29,16 +29,19 @@
         $button.on('submit', function () {
         event.preventDefault();
         let submission = $("#compose textarea").val();
-        $button.serialize()
-        console.log("serialized form= ", $("#compose").serialize() )
+        $button.serialize();
         console.log('Submitted: ', submission);
+        if (submission === ''){
+          return alert("You have to enter a tweet.")
+        }
+        if (submission.length >140 ){
+          return alert("Your tweet is too long.")
+        }
         $.ajax({
             type: "POST",
             url: "/tweets",
-            data: $('#compose').serialize(),
-            // success: function(data){
-            //   alert(submission);
-            // },
+            data: $('#compose').serialize()
+
           });
         });
       });
