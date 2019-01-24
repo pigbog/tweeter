@@ -26,3 +26,31 @@
 	width:80px;
 	height:80px;
 }
+
+#compose-button{
+	
+	vertical-align: middle;
+	float:right;
+	font-size: 1em;
+	line-height: 2.5em;
+	padding: .4rem;
+	border-style: solid;
+	border-radius:.5em;
+	margin-top:.4rem;
+	background-color: #d8ffeb;		
+
+}
+
+#compose-button:hover{
+	
+	vertical-align: middle;
+	float:right;
+	font-size: 1em;
+	line-height: 2.5em;
+	padding: .4rem;
+	border-style: solid;
+	border-radius:.5em;
+	margin-top:.4rem;
+	background-color: #00ff7b;		
+
+}

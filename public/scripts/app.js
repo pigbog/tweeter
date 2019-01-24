@@ -4,9 +4,14 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-
+function escape(str) {
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
 
 function createTweetElement(tweets){
+	
 	const $tweet =
 	`
 	<article class="tweets">
@@ -18,7 +23,7 @@ function createTweetElement(tweets){
           </span>
           </header>
           <div class="tweet-innards">
-          ${tweets["content"]["text"]}
+      	  ${escape(tweets["content"]["text"])}
           </div>
 
           <footer>
@@ -46,9 +51,9 @@ function loadTweets(){
 			renderTweets(response);}
 		)}
 
-$(document).ready( loadTweets() )
+$(document).ready( loadTweets(),  $(".error-message").hide() )
 
 
 
 $("#compose").on("submit", function (){
-	$('.tweet-containter').replaceWith( loadTweets() )})
+	$('.tweet-containter').replaceWith( loadTweets()	 )})
