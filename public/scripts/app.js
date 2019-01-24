@@ -4,6 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+
 function escape(str) {
   var div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
@@ -29,7 +30,7 @@ function createTweetElement(tweets){
           <footer>
             10 days ago
             <div class="buttons">
-              <a href="#"> <i class="fas fa-flag"></i> </a>
+              <a href="#"> <i cluster.removeAllListeners(type);s="fas fa-flag"></i> </a>
               <a href="#"> <i class="fas fa-retweet"></i> </a>
               <a href="#"> <i class="fas fa-heart"></i> </a>
             </div>
