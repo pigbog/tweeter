@@ -12,7 +12,6 @@ function escape(str) {
 }
 
 function createTweetElement(tweets){
-  console.log(moment(1548373019661).fromNow())
   const $tweet = `
 	<article class="tweets">
           <header>
@@ -28,11 +27,11 @@ function createTweetElement(tweets){
 
           <footer>
             ${moment(tweets.created_at).fromNow()}
-            <div class="buttons">
-              <a href="#"> <i class="fas fa-flag"></i> </a>
-              <a href="#"> <i class="fas fa-retweet"></i> </a>
-              <a href="#"> <i class="fas fa-heart"></i> </a>
-            </div>
+              <div class="buttons">
+                <a href="#"> <i class="fas fa-flag"></i> </a>
+                <a href="#"> <i class="fas fa-retweet"></i> </a>
+                <a href="#"> <i class="fas fa-heart"></i> </a>
+              </div>
           </footer>
       </article>
 	`
