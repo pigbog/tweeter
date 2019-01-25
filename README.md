@@ -1,11 +1,14 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone. It was developed as a student project at Lighthouse Labs.
+Tweeter is a simple, single-page Twitter clone. It was developed as a student project at Lighthouse Labs. Users can submit tweets which save to a mongo database.
 
 
 
 ## Getting Started
-
+- Install dependencies using the NPM install command.
+- Run the server using NPM run local
+- Click the compose button displayed in the upper right hand corner of your app running on the browser.
+- Write an incredible tweet.
 
 
 ## Screenshots
