@@ -15,18 +15,20 @@ function createTweetElement(tweets){
   const $tweet = `
   <article class="tweets">
           <header>
-           <img class="avatars" src="${tweets["user"]["avatars"]["small"]}"> 
+           <img class="avatars" src="${tweets.user.avatars.small}"> 
+           <div class="user_name">
            ${tweets.user.name}
+           </div>
            <span class="userID">
-          ${tweets["user"]["handle"]}
+          ${tweets.user.handle}
           </span>
           </header>
           <div class="tweet-innards">
-            ${escape(tweets["content"]["text"])}
+            ${escape(tweets.content.text)}
           </div>
 
           <footer>
-            ${moment(tweets.created_at).fromNow()}
+            Created ${moment(tweets.created_at).fromNow()}.
               <div class="buttons">
                 <a href="#"> <i class="fas fa-flag"></i> </a>
                 <a href="#"> <i class="fas fa-retweet"></i> </a>
@@ -86,7 +88,7 @@ $button.on('submit', function () {
 });
 
 $( "#compose-button" ).click(function() {
-  $( ".new-tweet" ).slideToggle("slow");
+  $( ".new-tweet" ).slideToggle();
   $("#tweet-body").focus();
   $(".error-message").slideUp();
 });

@@ -22,21 +22,29 @@
 	word-wrap: break-word;
 }
 .tweets header{
+	position:relative;
 	vertical-align: middle;
 	padding:0;
 	background-color: #eee;
 	padding: .4rem;
-	font-size:1.5rem;
+	font-size:1.2rem;
 	font-weight:900;
 	border-top-right-radius: .25em;
 	border-top-left-radius: .25em;
 	line-height: 3;
 
 }
-
+.user_name{
+	white-space: nowrap; 
+    overflow: hidden;
+	text-overflow: ellipsis;
+	max-width:45%;
+}
 .tweets header .userID{
-	float: right;
-	font-size:1rem;
+	position: absolute	;	
+	top:0;
+	right:0;
+	font-size:.8rem;
 	padding: .4rem;
 	font-weight:300;
 }
