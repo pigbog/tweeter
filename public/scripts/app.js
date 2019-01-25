@@ -6,42 +6,41 @@
 
 
 function escape(str) {
-  var div = document.createElement('div');
+  let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 }
 
 function createTweetElement(tweets){
-	
-	const $tweet =
-	`
+  console.log(moment(1548373019661).fromNow())
+  const $tweet = `
 	<article class="tweets">
           <header>
            <img class="avatars" src="${tweets["user"]["avatars"]["small"]}"> 
-           ${tweets["user"]["name"]}
+           ${tweets.user.name}
            <span class="userID">
           ${tweets["user"]["handle"]}
           </span>
           </header>
           <div class="tweet-innards">
-      	  ${escape(tweets["content"]["text"])}
+            ${escape(tweets["content"]["text"])}
           </div>
 
           <footer>
-            10 days ago
+            ${moment(tweets.created_at).fromNow()}
             <div class="buttons">
-              <a href="#"> <i cluster.removeAllListeners(type);s="fas fa-flag"></i> </a>
+              <a href="#"> <i class="fas fa-flag"></i> </a>
               <a href="#"> <i class="fas fa-retweet"></i> </a>
               <a href="#"> <i class="fas fa-heart"></i> </a>
             </div>
           </footer>
       </article>
 	`
-	return $tweet
+	return $tweet;
 }
 
-function renderTweets (tweetdata){
-	for (let indTweets in tweetdata){
+function renderTweets (tweetdata) {
+	for (let indTweets in tweetdata) {
 		$('.tweet-container').prepend(createTweetElement(tweetdata[indTweets]))
 	}
 }
@@ -49,12 +48,46 @@ function renderTweets (tweetdata){
 
 function loadTweets(){
 		$.get("/tweets", function(response){ 
-			renderTweets(response);}
+      renderTweets(response); 
+    }
 		)}
 
-$(document).ready( loadTweets(),  $(".error-message").hide() )
+$(document).ready( 
+  loadTweets(),
+  $(".error-message").hide(),
+  $(".new-tweet").hide() );
 
+  var $button = $('#compose');
+  $button.on('submit', function () {
+  event.preventDefault();
+  let submission = $("#compose textarea").val();
+  $button.serialize();
+  if (submission === ''){
+    let errorms ="<i class=\"fas fa-exclamation-triangle\"></i> Write something!"
+    $(".error-message").html(errorms);
+    $(".error-message").slideDown()
+    return
+  }
 
+  if (submission.length >140 ){
+   let errorms ="<i class=\"fas fa-exclamation-triangle\"></i> Too Long!"
+    $(".error-message").html(errorms);
+    $(".error-message").slideDown()
+    return
+  }
+  $.ajax({
+      type: "POST",
+      url: "/tweets",
+      data:$('#compose').serialize()
+    });
+  $(".error-message").slideUp();
+  $("#compose textarea").val('');
+  $(".counter").text('140');
+  $('.tweet-containter').replaceWith( loadTweets()	 );
+  });
 
-$("#compose").on("submit", function (){
-	$('.tweet-containter').replaceWith( loadTweets()	 )})
+$( "#compose-button" ).click(function() {
+      $( ".new-tweet" ).slideToggle( "slow");
+      $("#tweet-body").focus();
+      $(".error-message").slideUp();
+    });

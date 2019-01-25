@@ -23,42 +23,8 @@
     <!-- FontAwesome icon pack" -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-    <script>
-      $(function() {
-        var $button = $('#compose');
-        $button.on('submit', function () {
-        event.preventDefault();
-        let submission = $("#compose textarea").val();
-        $button.serialize();
-        console.log('Submitted: ', submission);
-        if (submission === ''){
-          let errorms ="<i class=\"fas fa-exclamation-triangle\"></i> Write something!"
-          $(".error-message").html(errorms);
-          $(".error-message").slideDown()
-          return
-        }
-        if (submission.length >140 ){
-         let errorms ="<i class=\"fas fa-exclamation-triangle\"></i> Too Long!"
-          $(".error-message").html(errorms);
-          $(".error-message").slideDown()
-          return
-        }
-        $.ajax({
-            type: "POST",
-            url: "/tweets",
-            data:$('#compose').serialize()
-          });
-        $(".error-message").slideUp()
-        });
-      });
-//       $( "#compose-button" ).click(function() {
-//       $( ".new-tweet" ).slideToggle( "slow", function() {
-//     // Animation complete.
-//   });
-// });
-    </script>
-
-
+    <script src="https://unpkg.com/moment"> </script>
+   
   </head>
 
   <body>
@@ -97,12 +63,7 @@
 <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js">  
     </script> 
-<script>
-    $( "#compose-button" ).click(function() {
-      $( ".new-tweet" ).slideToggle( "slow");
-      $("#tweet-body").focus();
-    });
-        </script>
+
   </body>
 </html>
 
