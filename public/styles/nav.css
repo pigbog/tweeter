@@ -27,6 +27,8 @@
 	height:80px;
 }
 
+/* This class is the button in the navbar which says compose, not to be confused with the button in the new tweets container. */
+
 #compose-button{
 	
 	vertical-align: middle;
@@ -51,6 +53,6 @@
 	border-style: solid;
 	border-radius:.5em;
 	margin-top:.4rem;
-	background-color: #00ff7b;		
+	background-color: #e6e3e3;		
 
 }

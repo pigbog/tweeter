@@ -64,7 +64,6 @@
 	font-size:.8rem;
 }
 
-
 .tweets .buttons{
 	float:right;
 }
@@ -72,7 +71,6 @@
 .tweets:hover{
 	border-color:#000000;
 }
-
 .error-message{
 	padding:.5em;
 	background-color: #eee;
@@ -85,6 +83,3 @@
 	color:red;
 }
 
-.red{
-    color: red;
-}

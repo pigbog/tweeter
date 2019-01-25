@@ -8,9 +8,6 @@ border-color: lightgray;
 border-style: solid;
 border-width: 1px
 
-
-
-
 }
 .new-tweet textarea{
 	width: 100%;
@@ -25,4 +22,8 @@ border-width: 1px
 
 border-bottom-style: solid;
 
+}
+
+.red{
+    color: red;
 }

@@ -44,12 +44,12 @@ function renderTweets(tweetdata){
   }
 }
 
-
 function loadTweets(){
   $.get("/tweets", function(response){
     renderTweets(response);
   }
-  );}
+  );
+}
 
 $(document).ready(
   loadTweets(),
@@ -86,7 +86,7 @@ $button.on('submit', function () {
 });
 
 $( "#compose-button" ).click(function() {
-  $( ".new-tweet" ).slideToggle( "slow");
+  $( ".new-tweet" ).slideToggle("slow");
   $("#tweet-body").focus();
   $(".error-message").slideUp();
 });
