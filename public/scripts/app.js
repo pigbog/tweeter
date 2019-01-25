@@ -13,7 +13,7 @@ function escape(str) {
 
 function createTweetElement(tweets){
   const $tweet = `
-	<article class="tweets">
+  <article class="tweets">
           <header>
            <img class="avatars" src="${tweets["user"]["avatars"]["small"]}"> 
            ${tweets.user.name}
@@ -34,59 +34,59 @@ function createTweetElement(tweets){
               </div>
           </footer>
       </article>
-	`
-	return $tweet;
+  `;
+  return $tweet;
 }
 
-function renderTweets (tweetdata) {
-	for (let indTweets in tweetdata) {
-		$('.tweet-container').prepend(createTweetElement(tweetdata[indTweets]))
-	}
+function renderTweets(tweetdata){
+  for (let indTweets in tweetdata){
+    $('.tweet-container').prepend(createTweetElement(tweetdata[indTweets]));
+  }
 }
 
 
 function loadTweets(){
-		$.get("/tweets", function(response){ 
-      renderTweets(response); 
-    }
-		)}
+  $.get("/tweets", function(response){
+    renderTweets(response);
+  }
+  );}
 
-$(document).ready( 
+$(document).ready(
   loadTweets(),
   $(".error-message").hide(),
   $(".new-tweet").hide() );
 
-  var $button = $('#compose');
-  $button.on('submit', function () {
+var $button = $('#compose');
+$button.on('submit', function () {
   event.preventDefault();
   let submission = $("#compose textarea").val();
   $button.serialize();
   if (submission === ''){
-    let errorms ="<i class=\"fas fa-exclamation-triangle\"></i> Write something!"
+    let errorms = "<i class=\"fas fa-exclamation-triangle\"></i> Write something!";
     $(".error-message").html(errorms);
-    $(".error-message").slideDown()
-    return
+    $(".error-message").slideDown();
+    return;
   }
 
-  if (submission.length >140 ){
-   let errorms ="<i class=\"fas fa-exclamation-triangle\"></i> Too Long!"
+  if (submission.length > 140 ){
+    let errorms = "<i class=\"fas fa-exclamation-triangle\"></i> Too Long!";
     $(".error-message").html(errorms);
-    $(".error-message").slideDown()
-    return
+    $(".error-message").slideDown();
+    return;
   }
   $.ajax({
-      type: "POST",
-      url: "/tweets",
-      data:$('#compose').serialize()
-    });
+    type: "POST",
+    url: "/tweets",
+    data:$('#compose').serialize()
+  });
   $(".error-message").slideUp();
   $("#compose textarea").val('');
   $(".counter").text('140');
-  $('.tweet-containter').replaceWith( loadTweets()	 );
-  });
+  $('.tweet-containter').replaceWith( loadTweets() );
+});
 
 $( "#compose-button" ).click(function() {
-      $( ".new-tweet" ).slideToggle( "slow");
-      $("#tweet-body").focus();
-      $(".error-message").slideUp();
-    });
+  $( ".new-tweet" ).slideToggle( "slow");
+  $("#tweet-body").focus();
+  $(".error-message").slideUp();
+});
